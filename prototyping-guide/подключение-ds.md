@@ -23,9 +23,10 @@
 
 - стили дизайн-системы и все компоненты;
 - иконки Material Icons;
-- **демо-страница прототипа — контейнер, плашка (общий заголовок и «Экраны»), хедер и сайднав:
-  подключается сразу, автоматически** — на странице их не собирать, не копировать и не подключать
-  отдельно; эталон и живой пример — `demo-connect.html` (ссылки ниже).
+- **демо-страница прототипа — контейнер, плашка (общий заголовок раздела, «Экраны», «Размер»),
+  хедер (с правой панелью) и сайднав: подключается сразу, автоматически** — на странице их
+  не собирать, не копировать и не подключать отдельно; эталон и живой пример — `demo-connect.html`
+  (ссылки ниже).
 - **демо-контент в прототипе не остаётся — только свой** (заказчик, 16.10.2026: «остаётся только
   чисто свой контент… демо-контент должен исчезнуть, удалиться»): демо-страница идёт как
   шаблон-подложка; взяв её, всё содержимое шаблона — контент, экраны, пункты селекта «Экраны»,
@@ -94,12 +95,23 @@
 - Tree: https://raw.githubusercontent.com/iiko-DS/DS/main/components-web/components/Tree_DS/demo.html
 - UI components (Text UI): https://raw.githubusercontent.com/iiko-DS/DS/main/components-web/components/UI-Components_DS/demo.html
 
-Организмы (сборки уровня приложения) — у каждого тоже свой стенд, папка `organisms/<имя>`:
-app-header, app-sidenav, app-right-panel:
-https://github.com/iiko-DS/DS/tree/main/organisms
+Организмы (сборки уровня приложения) — у каждого свой стенд (`demo.html`) и readme; папка
+`organisms/<имя>`: https://github.com/iiko-DS/DS/tree/main/organisms
+
+- **приходят сами** с демо-страницей (на странице их не собирать): `app-header` (шапка),
+  `app-sidenav` (боковое меню), `app-right-panel` (правая панель — шторка шапки);
+- **подключаются вручную по своему readme** (через `connect.js` не приходят — нужны не каждой
+  странице): `app-header-content` — шапка раздела, `app-table-header-actions` — полоса над
+  таблицей, `app-page-footer` — подвал страницы и таблицы, `app-table-card-adaptive` — карточка
+  строки таблицы в адаптиве. Readme — с точными путями подключения и разметкой:
+  - https://raw.githubusercontent.com/iiko-DS/DS/main/organisms/app-header-content/readme.md
+  - https://raw.githubusercontent.com/iiko-DS/DS/main/organisms/app-table-header-actions/readme.md
+  - https://raw.githubusercontent.com/iiko-DS/DS/main/organisms/app-page-footer/readme.md
+  - https://raw.githubusercontent.com/iiko-DS/DS/main/organisms/app-table-card-adaptive/readme.md
 
 Теперь demo.html есть у **всех компонентов** (батчи A–E, 10.2026) — если компонента нет в списке выше,
-смотри спецификацию; состав и состояния также фиксировались в журнале ДС `fixes.md` (№115–135).
+смотри спецификацию; состав и состояния также фиксировались в журнале ДС `fixes.md` (батчи A–E —
+№115–135; дальше сверки стендов по Figma — до №190).
 
 ## Что писать на странице
 
