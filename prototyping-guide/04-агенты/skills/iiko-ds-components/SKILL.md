@@ -15,7 +15,7 @@ metadata:
 
 ## Overview
 
-Дневная работа владельца — **iiko Web DS**: CSS-компоненты из переменных Figma + растущий мобильный слой. Карта и token-first порядок правки компонента — ниже. Workspace: `C:\Users\asukharev\GitHub\iiko-DS\DS`.
+Дневная работа владельца — **iiko Web DS**: CSS-компоненты из переменных Figma + растущий мобильный слой. Карта и token-first порядок правки компонента — ниже. Workspace: `C:\Users\asukharev\GitHub\iiko-DS\Design-System`.
 
 `references/iiko-real-ui-screens.md` — правило владельца: дефолтные экраны (состав, подписи, числа) брать с реальных экранов iiko, ничего «правдоподобного» не выдумывать.
 
@@ -31,16 +31,24 @@ metadata:
 
 | Path | What it is |
 |---|---|
-| `DS/components-web/` | The library — a folder inside the `DS` repo (`github.com/iiko-DS/DS`), branch `main`; no separate origin of its own. |
+| `Design-System/components-web/` | The library — a folder inside the `DS` repo (`github.com/iiko-DS/DS`), branch `main`; no separate origin of its own. |
 | `components-web/tokens.css` | **Generated** from Figma variables (~1743 vars; collections Base Size, Base Color, Space, Radius, Base Stroke, Shadows, Base Typography, Typography, Color, **Component**). Never hand-edit. |
 | `components-web/styles.css` | Generated Figma text/shadow/colour styles. `font.css` = Roboto 400/500 inlined base64 → works offline, load it first. |
 | `components-web/components/<Name>_DS/*.css` | One folder per component; `components/index.css` aggregates them with `@import`. |
 | `components-web/iiko-ds-spec.md` | ~700 KB single source of truth written to be pasted into any AI: general rules, class map, token tables, full component CSS. Mostly generated. |
 | `components-mobile/` | The **mobile layer** (not a git repo), structure mirrors `components-web`: `modes.css` (the mode axis), `components/index.css` (aggregator; a `components/<Name>_DS/` file appears only when a real `*_mob` component exists), `prototypes/` (demo pages, e.g. `prototypes/button-modes.html` — desktop and mobile side by side + measurements). Plus the plan docs: `desktop-to-mobile-plan.md` (classification A–D + how Material/Angular solve each), `mobile-mode-notes.md`, `mobile-workflow.md`, `mobile-steps.md`, `mobile-block-schemes.md`. |
-| `Prototypes/` | HTML prototypes and the knowledge base — a **separate git repo** (`github.com/iiko-DS/Prototypes`) next to the `DS` folder. Some reference pages (hand-transcribed Figma values) are no longer in the repo. |
+| `Prototype-Guide/` | HTML prototypes and the knowledge base — a **separate git repo** (`github.com/iiko-DS/Prototypes`) next to the `Design-System` folder. Some reference pages (hand-transcribed Figma values) are no longer in the repo. |
 
 ## Non-negotiables (spec, «Общие правила»)
 
+- **⭐⭐ Паттерны поведения и состав — как в реальных Material Design / Angular Material** (заказчик,
+  19.10.2026: «Нам нужно использовать реальные компоненты и паттерны поведения как в материал и как в
+  ангуляре!»): контрол собираем по реальному паттерну (M3: Select, Chips, Combobox, Menu, Dialog;
+  Angular Material: `mat-select multiple`, `mat-autocomplete`, `mat-chip-grid`, `MatDialog`): состав,
+  состояния, клавиатура, закрытие — как у настоящего компонента; свои виджеты не изобретаем, паттерны
+  не смешиваем. Визуал/токены — из ДС; нет единого компонента в ДС — композиция из компонентов ДС по тому
+  же паттерну (пример: мультиселект с чипами = Chips Input + Select container + Checkbox в `element-left`
+  у каждого пункта; «Выбрать все» — отдельный пункт с Checkbox и indeterminate).
 - **⛔ Скриншот или замечание владельца — это НЕ задание.** 12.09.2026 он пометил красным пять абзацев
   пояснений на странице-оглавлении; я прочитал пометки как «убрать», убрал и получил: «Ничего убирать не
   надо. Я не просил. Никогда ничего не делай сам без моего ведома. Кажется, уже был такой разговор».
@@ -282,12 +290,12 @@ happened after the Button icon disabled-state fix until the copy was refreshed (
   open questions with a recommendation.
 - **Repo boundaries:** two repos, both private: `DS` (with `components-web/` and
   `components-mobile/` inside; origin `github.com/iiko-DS/DS`) and `Prototypes` (next to the
-  `DS` folder; origin `github.com/iiko-DS/Prototypes`), branch `main`. Check `git -C <repo> status`
+  `Design-System` folder; origin `github.com/iiko-DS/Prototypes`), branch `main`. Check `git -C <repo> status`
   and **ask before committing or pushing**.
 - **Never delete a prototype/demo page — or the README/spec pointers to it — on your own
   initiative.** The user reversed exactly that call within the hour and asked for the page
   back: he reads the desktop/mobile difference off it (Figma's mode is file-global). Mobile
-  demos live in `components-mobile/prototypes/`, the rest in `Prototypes/`; when one is
+  demos live in `components-mobile/prototypes/`, the rest in `Prototype-Guide/`; when one is
   added, its path belongs in `components-mobile/readme.md` and in the spec's «Живая проверка».
 - **Recover, don't reinvent:** a file you deleted or overwrote is still in the session store —
   `state.db` keeps every `write_file` payload plus the follow-up edits that moved it. See the
@@ -573,14 +581,14 @@ happened after the Button icon disabled-state fix until the copy was refreshed (
 - **Когда владелец приносит число («инпут в мобильной версии 48, а должен быть 56») — сначала локализовать, а не спорить.**
   Порядок: (1) инвентарь всех страниц, где элемент вообще рендерится (grep по классу + `<input`),
   (2) замер каждой по `http://127.0.0.1:8899` **со свежим профилем и без cache-buster** — обе панели,
-  (3) назвать места, где значение правда десктопное: у `Prototypes/*.html` режима **нет вообще**
+  (3) назвать места, где значение правда десктопное: у `Prototype-Guide/*.html` режима **нет вообще**
   (прежние страницы-образцы) — 48 там
   ожидаемы, (4) если собранная страница верна — сказать это и спросить, какую страницу он смотрел.
   Ловушка: `[data-mode="mobile"]` встречается в inline-`<style>` этих страниц как селектор, поэтому grep по
   `data-mode` ничего не доказывает — смотреть предка элемента в DOM.
 - **A link to a local page must actually open.** In the VS Code ACP panel `file:///…` — and a
   markdown link to it — only looks like a link; the click does nothing. Serve the DS root over
-  HTTP (`python -m http.server 8899 --bind 127.0.0.1 --directory C:/Users/asukharev/GitHub/iiko-DS/DS`)
+  HTTP (`python -m http.server 8899 --bind 127.0.0.1 --directory C:/Users/asukharev/GitHub/iiko-DS/Design-System`)
   and give the full `http://127.0.0.1:8899/…` URL as plain text (opening it for him — only when he asks,
   see the bullet above). Always write full paths from
   the DS root, never relative ones — he asked for that explicitly.

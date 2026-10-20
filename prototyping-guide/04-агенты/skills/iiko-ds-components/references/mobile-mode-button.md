@@ -37,7 +37,7 @@ size) and is also the biggest open question: on mobile their 28/24 px targets si
 - `components-web/modes.css` (new) — mode axis + Button block.
 - `components-web/components/Button_DS/button.css` — sizes moved to component tokens; heights
   derived with `calc()`; new `.ds-btn--full-width`; two latent bugs fixed (below).
-- `Prototypes/button-modes.html` (new) — desktop/mobile side by side (three views:
+- `Prototype-Guide/button-modes.html` (new) — desktop/mobile side by side (three views:
   both / desktop only / mobile only) plus a table of measurements produced by the page's own
   JS (`document.body.dataset.measure`).
 - `components-web/iiko-ds-spec.md` — TOC entry 8, new section «Режимы платформы (Desktop /

@@ -23,8 +23,8 @@
 
 | Что | Состояние |
 |---|---|
-| `C:/Users/asukharev/GitHub/iiko-DS/DS` | origin `https://github.com/iiko-DS/DS`, ветка `main`, приватный; папки `components-web/` и `components-mobile/` — **внутри него** (отдельных репозиториев у них нет) |
-| `C:/Users/asukharev/GitHub/iiko-DS/Prototypes` | origin `https://github.com/iiko-DS/Prototypes`, ветка `main`, приватный; лежит рядом с папкой `DS`; база знаний — `prototyping-guide/` внутри |
+| `C:/Users/asukharev/GitHub/iiko-DS/Design-System` | origin `https://github.com/iiko-DS/DS`, ветка `main`, приватный; папки `components-web/` и `components-mobile/` — **внутри него** (отдельных репозиториев у них нет) |
+| `C:/Users/asukharev/GitHub/iiko-DS/Prototype-Guide` | origin `https://github.com/iiko-DS/Prototypes`, ветка `main`, приватный; лежит рядом с папкой `Design-System`; база знаний — `prototyping-guide/` внутри |
 | Публичный сайт | пока **нет**: Pages у приватных репозиториев не включается; когда включат — ДС будет отдаваться по `https://iiko-ds.github.io/DS/…` |
 
 Проверка состояния без токена и без печати учётных данных:
@@ -41,7 +41,7 @@ git ls-tree -r --name-only origin/main | grep <имя>                # «фай
 ## 3. Выборочный коммит — точный порядок
 
 ```bash
-cd C:/Users/asukharev/GitHub/iiko-DS/DS            # или .../iiko-DS/Prototypes — рядом
+cd C:/Users/asukharev/GitHub/iiko-DS/Design-System            # или .../iiko-DS/Prototype-Guide — рядом
 git status --short                                 # ?? новое (не уедет) / A отмечено (уедет) / M / D
 git add <файл> [<файл>…]                           # только нужные, через пробел
 git diff --cached --name-only                      # ЕДИНСТВЕННЫЙ источник правды: это и уедет

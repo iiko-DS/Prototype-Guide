@@ -79,7 +79,7 @@ HUG. Примитива 44 px в Base Size тоже нет (максимум `--
 
 ## Recipe: демо-страница режимов
 
-`Prototypes/button-modes.html` — по образцу
+`Prototype-Guide/button-modes.html` — по образцу
 прежняя страница-образец (удалена из репозитория): локальные `../components-web/font.css`, `tokens.css`,
 **`modes.css`**, `styles.css`, `components/index.css`.
 
