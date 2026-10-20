@@ -27,13 +27,13 @@ python --version
 
 ## 3. Склонировать репозитории
 
-Создать папку, например `DS`, и склонировать в неё репозиторий `DS` целиком: папки слоёв `components-web/` и `components-mobile/` уже внутри, их имена менять нельзя — на них по относительным путям ссылаются прототипы. `Prototypes` — отдельный репозиторий, клонируется **рядом** с папкой `DS`.
+Создать папку, например `Design-System`, и склонировать в неё репозиторий `DS` целиком: папки слоёв `components-web/` и `components-mobile/` уже внутри, их имена менять нельзя — на них по относительным путям ссылаются прототипы. `Prototypes` — отдельный репозиторий, клонируется **рядом** с папкой `Design-System`.
 
-В GitHub Desktop: `File → Clone repository → GitHub.com` — склонировать `DS` (в папку `DS`), `Prototypes` — рядом с ней:
+В GitHub Desktop: `File → Clone repository → GitHub.com` — склонировать `DS` (в папку `Design-System`), `Prototypes` — рядом с ней (папка `Prototype-Guide`):
 
 ```
-iiko-DS/DS                   ДС целиком: папки components-web и components-mobile, connect.js
-iiko-DS/Prototypes           прототипы и база знаний (рядом с папкой DS)
+iiko-DS/Design-System        ДС целиком: папки components-web и components-mobile, connect.js
+iiko-DS/Prototype-Guide      прототипы и база знаний (рядом с папкой Design-System)
 ```
 
 Этот репозиторий (база знаний по дизайн-системе и прототипам) клонировать рядом **не нужно** — он не участвует в сборке, читается прямо на GitHub.
@@ -46,7 +46,7 @@ iiko-DS/Prototypes           прототипы и база знаний (ряд
 python pull.py    # забрать свежий main из репозиториев DS и Prototypes
 ```
 
-Пример живой страницы-прототипа — `Prototypes/demo-connect.html`: стили ДС, шапка и меню подключаются сами.
+Пример живой страницы-прототипа — `Prototype-Guide/demo-connect.html`: стили ДС, шапка и меню подключаются сами.
 
 ## 5. Что дальше
 
@@ -63,5 +63,5 @@ python pull.py    # забрать свежий main из репозиторие
 |---|---|
 | Репозиторий не клонируется, в списке его нет | Нет доступа — попросить приглашение в организацию |
 | `python: command not found` | Python не в PATH: переустановить с галочкой «Add Python to PATH», перезапустить терминал |
-| Страницы собрались, но без стилей | Папок `components-web`/`components-mobile` нет внутри папки DS — проверить, что репозиторий DS склонирован целиком |
+| Страницы собрались, но без стилей | Папок `components-web`/`components-mobile` нет внутри папки Design-System — проверить, что репозиторий DS склонирован целиком |
 | `pull` ругается на local changes | Правки лежат в `main` вместо своей ветки — перенести их в ветку (в GitHub Desktop: `Current Branch → New Branch` переносит изменения) |

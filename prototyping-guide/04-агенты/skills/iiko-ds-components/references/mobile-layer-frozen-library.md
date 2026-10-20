@@ -8,7 +8,7 @@
 ## Как откат делается и как он проверяется
 
 ```bash
-cd C:/Users/asukharev/GitHub/iiko-DS/DS/components-web
+cd C:/Users/asukharev/GitHub/iiko-DS/Design-System/components-web
 git status --porcelain --untracked-files=all   # должно быть ПУСТО (ни изменённых, ни новых)
 git diff --quiet HEAD && echo identical        # код 0 = содержимое равно коммиту
 git checkout -- .                              # собственно откат
